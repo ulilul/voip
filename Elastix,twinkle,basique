@@ -1,0 +1,47 @@
+# Installation d'une serveur VOIP avec Elastix 
+
+# L'installation n'a rien de compliqué en soit je vais donc passer cette étape 
+
+# Une fois l'installation terminé connecté vous sur une page web avec l'ip static que vous lui avez données dans mon cas:
+https://192.168.1.8/
+
+# Ils vont vous demander vos identifiants FreePBX que vous avez renseignées durant l'installation
+
+Rendez-vous maintenant sur l'onglet PBX
+Configurer PBX
+generic SIP Device
+Submit
+
+User extension : (choisir un numéro, c'est en quelque sorte votre numéro de téléphone)
+Display name : nom de l'extension
+secret : votre mot de passe
+
+# On touchera à rien d'autre pour une configuation basique
+Submit
+Apply
+
+# Voila notre premier client a était crée libre à vous dans créer d'autres 
+# Dans notre exemples, on aura SIP 200 / Lille SIP 201 / Paris
+
+Rendez-vous maintenant sur un poste d'utilisateur dans notre cas un poste linux sous ubuntu 
+Nous utiliserons l'application Twinkle dans notre exemple 
+
+# Sur Twinkle
+
+Compte SIP
+Votre nom : (nom affiché lors d'un appel)
+Nom d'utilisateur : ( le numéro SIP de votre utilisateur)
+Domain : (l'adresse de votre serveur Elastix)
+
+Authentification SIP
+Realm : (l'adresse du serveur Elastix)
+Nom d'authentification : (le numéro du sip)
+MDP : (le mot de passe de l'utilisateur sip)
+
+# Vous ferez de même pour le 2ème compte 
+
+Vous pouvez maintenant vous connecter sur l'onglet connexion ( attention le compte se déconnecte automatiquement au bout de 3600sec, vous pouvez le changer dans les paramètres)
+
+Essaye maintenant d'appeler le 2ème utilisateur en ayant fait les mêmes configurations au préalable dessus
+
+Si tout se passe bien, vous verrez "Lille essaye de vous joindre" sur votre poste Paris
